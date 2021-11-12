@@ -1,0 +1,24 @@
+sudo apt update
+sudo apt install openjdk-11-jre-headless
+sudo apt install openjdk-8-jre-headless
+sudo apt install default-jre
+sudo apt install default-jdk
+java -version,       
+javac -version
+
+sudo apt update
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+sudo ufw allow 8080
+sudo ufw allow OpenSSH
+sudo ufw enable
+sudo ufw status
+With browser open the page         http://your_server_ip_or_domain:8080
+Admin password is in file               /var/lib/jenkins/secrets/initialAdminPassword
+Autoconfig will ask to install plugins. Install suggested plugins. It can take a while.
+Create first admin user
+Save and finish
